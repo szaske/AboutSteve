@@ -28,6 +28,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Click Event Test" />
+
+            <Button
+                android:id="@+id/playBoggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Play Boggle" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

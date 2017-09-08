@@ -1,6 +1,7 @@
 package com.zaske.about_steve.aboutsteve;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -16,17 +17,27 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.os.Build.VERSION_CODES.M;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    @BindView(R.id.clickEventButton) Button mClickEventButton;
+   // @BindView(R.id.clickEventButton) Button mClickEventButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Auto binding to our layout objects
-        ButterKnife.bind(this);
+//        //Auto binding to our layout objects
+//        ButterKnife.bind(this);
+//
+//        mClickEventButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,20 +52,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Create fragment and give it an argument specifying the article it should show
-        home_page_frag homepageFrag = new home_page_frag();
-        Bundle args = new Bundle();
-        args.putInt("default",1);
-        homepageFrag.setArguments(args);
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
-                transaction.replace(R.id.content_main, homepageFrag);
-                transaction.addToBackStack(null);
-
-        // Commit the transaction
-                transaction.commit();
+        codeSampleFragment csFrag = new codeSampleFragment();
+        switchDrawers(csFrag);  //switch fragment method
 
         //make is selected by default
         navigationView.setCheckedItem(R.id.code_samples);
