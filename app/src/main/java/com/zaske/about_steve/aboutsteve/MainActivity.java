@@ -1,10 +1,8 @@
 package com.zaske.about_steve.aboutsteve;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,11 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static android.os.Build.VERSION_CODES.M;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Create fragment and give it an argument specifying the article it should show
-        codeSampleFragment csFrag = new codeSampleFragment();
+        drawer_frag_code_samples csFrag = new drawer_frag_code_samples();
         switchDrawers(csFrag);  //switch fragment method
 
         //make is selected by default
@@ -100,7 +93,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.code_samples) {
             //Create the fragment
-            codeSampleFragment csFrag = new codeSampleFragment();
+            drawer_frag_code_samples csFrag = new drawer_frag_code_samples();
             switchDrawers(csFrag);  //switch fragment method
 
         } else if (id == R.id.nav_gallery) {
@@ -112,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_resume) {
-            resume_drawer_fragment reFrag = new resume_drawer_fragment();
+            drawer_frag_resume reFrag = new drawer_frag_resume();
             switchDrawers(reFrag);
         }
 

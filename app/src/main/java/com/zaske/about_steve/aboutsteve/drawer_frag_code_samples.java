@@ -1,5 +1,6 @@
 package com.zaske.about_steve.aboutsteve;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -19,19 +20,19 @@ import butterknife.OnClick;
  * Created by steve on 9/8/2017.
  */
 
-public class codeSampleFragment extends Fragment {
+public class drawer_frag_code_samples extends Fragment {
     // View view;
     @BindView(R.id.clickEventButton) Button mClickEventButton;
     @BindView(R.id.playBoggleButton) Button mPlayBoggleButton;
 
     @OnClick(R.id.clickEventButton) void onEventButton() {
-        Snackbar.make(getView(), "You clicked the button, and I aught it", Snackbar.LENGTH_SHORT)
+        Snackbar.make(getView(), "You clicked the button, and I caught it", Snackbar.LENGTH_SHORT)
                 .setAction("Action", null).show();
     }
 
     @OnClick(R.id.playBoggleButton) void OnPlayBoggle() {
-        Snackbar.make(getView(), "You clicked the Boggle button", Snackbar.LENGTH_SHORT)
-                .setAction("Action", null).show();
+        Intent playBoggle = new Intent(getActivity(), BoggleActivity.class);
+        startActivity(playBoggle);
     }
 
     @Override

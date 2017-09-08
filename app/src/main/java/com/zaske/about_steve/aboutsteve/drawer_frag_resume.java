@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * Created by steve on 9/8/2017.
  */
 
-public class resume_drawer_fragment extends Fragment {
+public class drawer_frag_resume extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
