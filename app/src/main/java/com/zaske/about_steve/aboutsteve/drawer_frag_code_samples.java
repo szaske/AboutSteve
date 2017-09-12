@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.zaske.about_steve.aboutsteve.code_samples.BoggleActivity;
+import com.zaske.about_steve.aboutsteve.code_samples.PassDataActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,18 +23,25 @@ import butterknife.OnClick;
 
 public class drawer_frag_code_samples extends Fragment {
     // View view;
-    @BindView(R.id.clickEventButton) Button mClickEventButton;
-    @BindView(R.id.playBoggleButton) Button mPlayBoggleButton;
+//    @BindView(R.id.clickEventButton) Button mClickEventButton;
+//    @BindView(R.id.playBoggleButton) Button mPlayBoggleButton;
+//    @BindView(R.id.passDataButton) Button mPassDataButton;
 
     @OnClick(R.id.clickEventButton) void onEventButton() {
         Snackbar.make(getView(), "You clicked the button, and I caught it", Snackbar.LENGTH_SHORT)
                 .setAction("Action", null).show();
     }
 
-    @OnClick(R.id.playBoggleButton) void OnPlayBoggle() {
-        Intent playBoggle = new Intent(getActivity(), BoggleActivity.class);
+    @OnClick(R.id.playBoggleButton) void OnPlayBoggleButtonClick() {
+        Intent playBoggle = new Intent(getActivity(), BoggleActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(playBoggle);
     }
+
+    @OnClick(R.id.passDataButton) void OnPassButtonClick() {
+        Intent jumpToFormsSample = new Intent(getActivity(), PassDataActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(jumpToFormsSample);
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -46,4 +55,6 @@ public class drawer_frag_code_samples extends Fragment {
 
         return view;
     }
+
+
 }

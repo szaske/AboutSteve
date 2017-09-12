@@ -1,16 +1,22 @@
 package com.zaske.about_steve.aboutsteve.code_samples;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.zaske.about_steve.aboutsteve.R;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BoggleActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class BoggleActivity extends AppCompatActivity {
+    @BindView(R.id.boggleTitle)
+    TextView mTitle;
     GridView gridView;
     ArrayList<String> roll = new ArrayList<String>();
     private String[][] die = new String[][] {
@@ -35,6 +41,12 @@ public class BoggleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boggle);
+
+        // Binding to our layout objects
+        ButterKnife.bind(this);
+
+        //Setting fonts
+        mTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Lobster_1.3.otf"));
 
         for(int i=0; i<=15; i++){
 

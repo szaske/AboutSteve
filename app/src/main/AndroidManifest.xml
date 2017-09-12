@@ -15,17 +15,20 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".code_samples.BoggleActivity"
-            android:label="Return to 'About Steve'">
+            android:label="Return to &apos;About Steve&apos;">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zaske.about_steve.aboutsteve.MainActivity">
-            </meta-data>
+                android:value="com.zaske.about_steve.aboutsteve.MainActivity" />
         </activity>
+        <activity android:name=".code_samples.PassDataActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".code_samples.CatchDataActivity"></activity>
     </application>
 
 </manifest>

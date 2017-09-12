@@ -31,7 +31,7 @@ public class BoggleActivityTest {
 
     @Test
     public void validateTitleContent() {
-        TextView boggleTitle = (TextView) activity.findViewById(R.id.headerTextView);
+        TextView boggleTitle = (TextView) activity.findViewById(R.id.boggleTitle);
         assertTrue("Play Boggle".equals(boggleTitle.getText().toString()));
     }
 
