@@ -13,11 +13,16 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BoggleActivity extends AppCompatActivity {
-    @BindView(R.id.boggleTitle)
-    TextView mTitle;
-    GridView gridView;
+    @BindView(R.id.boggleTitle) TextView mTitle;
+    @BindView(R.id.baseGridView) GridView mGridView;
+
+    @OnClick(R.id.clickEventButton) void onEventButton() {
+        Snackbar.make(getView(), "You clicked the button, and I caught it", Snackbar.LENGTH_SHORT)
+                .setAction("Action", null).show();
+    }
     ArrayList<String> roll = new ArrayList<String>();
     private String[][] die = new String[][] {
             {"R","I","F","O","B","X"},
@@ -53,8 +58,8 @@ public class BoggleActivity extends AppCompatActivity {
             roll.add(die[i][rollDie()]);
         }
 
-        gridView = (GridView) findViewById(R.id.baseGridView);
-        gridView.setAdapter(new BoggleAdapter(this, roll));
+        // mGridView = (GridView) findViewById(R.id.baseGridView);
+        mGridView.setAdapter(new BoggleAdapter(this, roll));
     }
 
     //Create a Random roll
@@ -67,6 +72,15 @@ public class BoggleActivity extends AppCompatActivity {
 
         return rollResults;
     }
+
+    //reRoll
+    public void reRoll(){
+        for(int i=0; i<=15; i++){
+
+            roll.add(die[i][rollDie()]);
+        }
+    }
+
 }
 
 
