@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.code_samples;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.zaske.about_steve.aboutsteve.R;
 
 import java.util.ArrayList;
 

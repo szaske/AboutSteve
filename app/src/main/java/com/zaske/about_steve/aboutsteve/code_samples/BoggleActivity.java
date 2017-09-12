@@ -1,8 +1,10 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.code_samples;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
+
+import com.zaske.about_steve.aboutsteve.R;
 
 import java.util.ArrayList;
 import java.util.Random;

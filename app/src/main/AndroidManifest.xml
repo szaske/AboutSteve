@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BoggleActivity"
+            android:name=".code_samples.BoggleActivity"
             android:label="Return to 'About Steve'">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
