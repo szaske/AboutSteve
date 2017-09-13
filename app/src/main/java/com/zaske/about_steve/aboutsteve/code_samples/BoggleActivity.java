@@ -1,6 +1,7 @@
 package com.zaske.about_steve.aboutsteve.code_samples;
 
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
@@ -19,9 +20,8 @@ public class BoggleActivity extends AppCompatActivity {
     @BindView(R.id.boggleTitle) TextView mTitle;
     @BindView(R.id.baseGridView) GridView mGridView;
 
-    @OnClick(R.id.clickEventButton) void onEventButton() {
-        Snackbar.make(getView(), "You clicked the button, and I caught it", Snackbar.LENGTH_SHORT)
-                .setAction("Action", null).show();
+    @OnClick(R.id.rollButton) void onEventButton() {
+        rollDice();
     }
     ArrayList<String> roll = new ArrayList<String>();
     private String[][] die = new String[][] {
@@ -53,13 +53,14 @@ public class BoggleActivity extends AppCompatActivity {
         //Setting fonts
         mTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Lobster_1.3.otf"));
 
-        for(int i=0; i<=15; i++){
-
-            roll.add(die[i][rollDie()]);
-        }
-
-        // mGridView = (GridView) findViewById(R.id.baseGridView);
-        mGridView.setAdapter(new BoggleAdapter(this, roll));
+        rollDice();
+//        for(int i=0; i<=15; i++){
+//
+//            roll.add(die[i][rollDie()]);
+//        }
+//
+//        // mGridView = (GridView) findViewById(R.id.baseGridView);
+//        mGridView.setAdapter(new BoggleAdapter(this, roll));
     }
 
     //Create a Random roll
@@ -74,11 +75,13 @@ public class BoggleActivity extends AppCompatActivity {
     }
 
     //reRoll
-    public void reRoll(){
+    public void rollDice(){
+        roll.clear();
         for(int i=0; i<=15; i++){
 
             roll.add(die[i][rollDie()]);
         }
+        mGridView.setAdapter(new BoggleAdapter(this, roll));
     }
 
 }
