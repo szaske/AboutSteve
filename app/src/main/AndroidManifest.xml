@@ -27,8 +27,18 @@
                 android:value="com.zaske.about_steve.aboutsteve.MainActivity" />
         </activity>
         <activity android:name=".code_samples.PassDataActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".code_samples.CatchDataActivity"></activity>
+            android:label="Return to &apos;About Steve&apos;"
+            android:windowSoftInputMode="adjustResize">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.zaske.about_steve.aboutsteve.MainActivity" />
+        </activity>
+        <activity android:name=".code_samples.CatchDataActivity"
+            android:label="Return to &apos;About Steve&apos;">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zaske.about_steve.aboutsteve.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

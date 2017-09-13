@@ -54,13 +54,6 @@ public class BoggleActivity extends AppCompatActivity {
         mTitle.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Lobster_1.3.otf"));
 
         rollDice();
-//        for(int i=0; i<=15; i++){
-//
-//            roll.add(die[i][rollDie()]);
-//        }
-//
-//        // mGridView = (GridView) findViewById(R.id.baseGridView);
-//        mGridView.setAdapter(new BoggleAdapter(this, roll));
     }
 
     //Create a Random roll

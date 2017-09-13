@@ -15,40 +15,58 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Code Samples Here"
-                android:textColor="@color/colorPrimary"
-                android:textSize="40sp" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-            <Button
-                android:id="@+id/clickEventButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="8dp"
-                android:text="Click Event Test" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/code_samples_title"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="40sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/playBoggleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="8dp"
-                android:text="Play Boggle" />
+                <Button
+                    android:id="@+id/clickEventButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="Click Event Test"
+                    app:layout_constraintLeft_toLeftOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <Button
-                android:id="@+id/passDataButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:text="Passing Data Example"
-                app:layout_constraintLeft_toRightOf="@+id/titleInput"
-                tools:layout_editor_absoluteY="81dp" />
+                <Button
+                    android:id="@+id/playBoggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="Play Boggle"
+                    app:layout_constraintLeft_toLeftOf="@+id/clickEventButton"
+                    app:layout_constraintTop_toBottomOf="@+id/clickEventButton" />
+
+                <Button
+                    android:id="@+id/passDataButton"
+                    style="@android:style/Widget.Material.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="Passing Data Example"
+                    app:layout_constraintLeft_toLeftOf="@+id/playBoggleButton"
+                    app:layout_constraintTop_toBottomOf="@+id/playBoggleButton" />
+            </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
