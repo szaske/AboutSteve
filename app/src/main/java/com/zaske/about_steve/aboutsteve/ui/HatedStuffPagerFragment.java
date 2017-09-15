@@ -10,20 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.models.Stuff;
-
 import org.parceler.Parcels;
-
-import java.lang.reflect.Method;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-import static android.R.attr.button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,10 +33,6 @@ public class HatedStuffPagerFragment extends Fragment {
     TextView mLinkTextView;
 
     private Stuff mHated;
-
-//    public HatedStuffPagerFragment() {
-//        // Required empty public constructor
-//    }
 
     public static HatedStuffPagerFragment newInstance(Stuff hated) {
         HatedStuffPagerFragment hatedStuffPagerFragment = new HatedStuffPagerFragment();
@@ -67,11 +55,15 @@ public class HatedStuffPagerFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mHated.getImgUrl()).into(mHatedImageView);
+        Picasso.with(view.getContext())
+                .load(mHated.getImgUrl())
+                .fit()
+                .centerInside()
+                .into(mHatedImageView);
 
         mNameTextView.setText(mHated.getName());
-        mCauseTextView.setText(mHated.getCause());
-        mLevelTextView.setText(Double.toString(mHated.getLevel()) + "/10");
+        mCauseTextView.setText("Why? " + mHated.getCause());
+        mLevelTextView.setText("Hatred level: " + Integer.toString(mHated.getLevel()) + "/10");
 
         final String tester = mHated.getLink();
         mLinkTextView.setOnClickListener (new View.OnClickListener() {

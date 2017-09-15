@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
 
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.adapters.HatedListAdapter;
@@ -30,9 +31,8 @@ public class HatedStuffActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hated_stuff);
         ButterKnife.bind(this);
-
+        this.setTitle(getString(R.string.hate_Activity_Title));
         getHatedStuff();
-
     }
 
     private void getHatedStuff(){
@@ -54,12 +54,15 @@ public class HatedStuffActivity extends AppCompatActivity {
                     public void run() {
                         hateAdapter = new HatedListAdapter(getSupportFragmentManager(),mHated);
                         mHatedViewPager.setAdapter(hateAdapter);
+                        mHatedViewPager.setPersistentDrawingCache(ViewGroup.PERSISTENT_SCROLLING_CACHE);
+                        mHatedViewPager.setDrawingCacheEnabled(true);
+                        mHatedViewPager.setDrawingCacheQuality(mHatedViewPager.DRAWING_CACHE_QUALITY_HIGH);
                         mHatedViewPager.setCurrentItem(0);
 
                     }
                 });  //end of runnable
 
-            }
+            } // end of onResponse
         });
-    } //end of getGenres
+    } //end of getHatedStuff method
 }

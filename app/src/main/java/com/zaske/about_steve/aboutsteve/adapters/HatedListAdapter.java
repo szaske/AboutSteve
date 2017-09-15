@@ -28,7 +28,7 @@ public class HatedListAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return super.getPageTitle(position);
+        return mHatedStuff.get(position).getName();
     }
 
     @Override

@@ -49,7 +49,11 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ui.HatedStuffActivity"></activity>
+        <activity android:name=".ui.HatedStuffActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zaske.about_steve.aboutsteve.ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
