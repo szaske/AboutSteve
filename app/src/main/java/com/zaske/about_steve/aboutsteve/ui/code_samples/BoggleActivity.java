@@ -1,13 +1,13 @@
-package com.zaske.about_steve.aboutsteve.code_samples;
+package com.zaske.about_steve.aboutsteve.ui.code_samples;
 
 import android.graphics.Typeface;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import com.zaske.about_steve.aboutsteve.R;
+import com.zaske.about_steve.aboutsteve.adapters.BoggleAdapter;
 
 import java.util.ArrayList;
 import java.util.Random;

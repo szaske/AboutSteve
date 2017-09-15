@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.ui;
 
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -7,13 +7,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.zaske.about_steve.aboutsteve.code_samples.BoggleActivity;
-import com.zaske.about_steve.aboutsteve.code_samples.PassDataActivity;
+import com.zaske.about_steve.aboutsteve.R;
+import com.zaske.about_steve.aboutsteve.ui.code_samples.BoggleActivity;
+import com.zaske.about_steve.aboutsteve.ui.code_samples.PassDataActivity;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve.code_samples;
+package com.zaske.about_steve.aboutsteve.ui.code_samples;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

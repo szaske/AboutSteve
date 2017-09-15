@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.zaske.about_steve.aboutsteve.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

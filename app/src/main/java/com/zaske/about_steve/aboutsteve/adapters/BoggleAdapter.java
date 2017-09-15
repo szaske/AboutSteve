@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve.code_samples;
+package com.zaske.about_steve.aboutsteve.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

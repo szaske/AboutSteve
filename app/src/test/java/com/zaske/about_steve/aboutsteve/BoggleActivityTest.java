@@ -3,7 +3,7 @@ package com.zaske.about_steve.aboutsteve;
 import android.os.Build;
 import android.widget.TextView;
 
-import com.zaske.about_steve.aboutsteve.code_samples.BoggleActivity;
+import com.zaske.about_steve.aboutsteve.ui.code_samples.BoggleActivity;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.ui;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zaske.about_steve.aboutsteve.R;
+
 /**
  * Created by steve on 9/8/2017.
  */
 
-public class home_page_frag extends Fragment{
+public class drawer_frag_home_page extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

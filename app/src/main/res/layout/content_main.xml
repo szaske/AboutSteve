@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_dark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.zaske.about_steve.aboutsteve.MainActivity"
+    tools:context="com.zaske.about_steve.aboutsteve.ui.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 </android.support.constraint.ConstraintLayout>

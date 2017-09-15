@@ -1,4 +1,4 @@
-package com.zaske.about_steve.aboutsteve;
+package com.zaske.about_steve.aboutsteve.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.zaske.about_steve.aboutsteve.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

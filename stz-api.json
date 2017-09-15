@@ -1,0 +1,68 @@
+{
+  "hated_stuff" : [ {
+    "level" : 10,
+    "id" : 1,
+    "img_url" : "https://i.pinimg.com/originals/b6/4f/1b/b64f1b8e23aa2a009b38076617592acb.jpg",
+    "name" : "Spiders",
+    "cause" : "Sneaky and hairy",
+    "cure": false,
+    "link": "https://en.wikipedia.org/wiki/Spider"
+  }, {
+    "level" : 3,
+    "id" : 2,
+    "img_url" : "https://i.pinimg.com/originals/e8/b6/db/e8b6db1a2fbf1207ab3112dd363976b4.jpg",
+    "name" : "Sushi",
+    "cause" : "Taste",
+    "cure": true,
+    "link": "https://en.wikipedia.org/wiki/Sushi"
+  }, {
+    "level" : 8,
+    "id" : 3,
+    "img_url" : "https://i.pinimg.com/originals/74/98/e4/7498e4f321e95f42908553ab44ab7044.jpg",
+    "name" : "Global Warming",
+    "cause" : "We're all going to die",
+    "cure": true,
+    "link": "https://en.wikipedia.org/wiki/Global_warming"
+  }, {
+    "level" : 10,
+    "id" : 4,
+    "img_url" : "https://media.thetab.com/blogs.dir/92/files/2016/04/maxresdefault-1024x768.jpg",
+    "name" : "Donald Trump",
+    "cause" : "We're all going to die",
+    "cure": true,
+    "link": "https://www.nytimes.com/interactive/2017/06/23/opinion/trumps-lies.html"
+  } ],
+  "liked_stuff" : [ {
+    "level" : 8,
+    "id" : 1,
+    "img_url" : "http://www.mimeticmedia.com/wp-content/uploads/2015/12/sundance-night.jpg",
+    "name" : "Sundance Film Festival",
+    "cause" : "Films, friends and lots of snow",
+    "cure": false,
+    "link": "https://www.sundance.org/festivals/sundance-film-festival"
+  }, {
+    "level" : 6,
+    "id" : 2,
+    "img_url" : "https://i.pinimg.com/originals/30/69/cf/3069cfaa6cc52c0721bf955c12b5a168.jpg",
+    "name" : "Pizza",
+    "cause" : "Taste",
+    "cure": true,
+    "link": "https://en.wikipedia.org/wiki/Pizza"
+  }, {
+    "level" : 8,
+    "id" : 3,
+    "img_url" : "http://www.ucsusa.org/sites/default/files/images/2017/04/stand-up-for-science-blue-on-white.jpg",
+    "name" : "Union of Concerned Scientists",
+    "cause" : "Research on sustainability standards and the disastrous affects of climate change",
+    "cure": true,
+    "link": "http://www.ucsusa.org/"
+  }, {
+    "level" : 5,
+    "id" : 4,
+    "img_url" : "http://i.huffpost.com/gen/2165258/images/o-NY-TIMES-ERROR-facebook.jpg",
+    "name" : "The New York Times",
+    "cause" : "America's best news source...and Paul Krugman",
+    "cure": true,
+    "link": "https://www.nytimes.com/"
+  } ]
+}
