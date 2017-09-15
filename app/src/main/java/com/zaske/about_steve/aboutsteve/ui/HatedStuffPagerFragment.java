@@ -1,6 +1,8 @@
 package com.zaske.about_steve.aboutsteve.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,8 +17,13 @@ import com.zaske.about_steve.aboutsteve.models.Stuff;
 
 import org.parceler.Parcels;
 
+import java.lang.reflect.Method;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static android.R.attr.button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +37,8 @@ public class HatedStuffPagerFragment extends Fragment {
     TextView mLevelTextView;
     @BindView(R.id.causeTextView)
     TextView mCauseTextView;
+    @BindView(R.id.linkTextView)
+    TextView mLinkTextView;
 
     private Stuff mHated;
 
@@ -55,6 +64,7 @@ public class HatedStuffPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hated_stuff_pager, container, false);
+
         ButterKnife.bind(this, view);
 
         Picasso.with(view.getContext()).load(mHated.getImgUrl()).into(mHatedImageView);
@@ -63,7 +73,15 @@ public class HatedStuffPagerFragment extends Fragment {
         mCauseTextView.setText(mHated.getCause());
         mLevelTextView.setText(Double.toString(mHated.getLevel()) + "/10");
 
+        final String tester = mHated.getLink();
+        mLinkTextView.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(tester));
+                startActivity(browserIntent);
+            }
+        });
+
         return view;
     }
-
 }
