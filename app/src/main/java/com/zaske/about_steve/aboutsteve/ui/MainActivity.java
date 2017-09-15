@@ -1,5 +1,6 @@
 package com.zaske.about_steve.aboutsteve.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.zaske.about_steve.aboutsteve.R;
+import com.zaske.about_steve.aboutsteve.ui.code_samples.BoggleActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,7 +88,9 @@ public class MainActivity extends AppCompatActivity
             drawer_frag_code_samples csFrag = new drawer_frag_code_samples();
             switchDrawers(csFrag);  //switch fragment method
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_hate) {
+            Intent hatedStuff = new Intent(this, HatedStuffActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(hatedStuff);
 
         } else if (id == R.id.nav_slideshow) {
 
