@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(hatedStuff);
 
         } else if (id == R.id.nav_slideshow) {
+            Intent Reddit = new Intent(this, AwwListActivity.class);
+            startActivity(Reddit);
 
         } else if (id == R.id.nav_manage) {
 

@@ -54,6 +54,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zaske.about_steve.aboutsteve.ui.MainActivity" />
         </activity>
+        <activity android:name=".ui.AwwListActivity" />
+
+        <service
+            android:name=".services.RedditService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

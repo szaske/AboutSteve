@@ -69,7 +69,7 @@ public class STZDataService extends Service {
             e.printStackTrace();
         }
         return hated;
-    } //end of processGenreResults
+    } //end of processHatedStuffResults
 
 
     @Override
