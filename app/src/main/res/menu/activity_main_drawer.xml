@@ -11,13 +11,13 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Stuff Steve Hates" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_reddit"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="TBD" />
+            android:title="Reddit OLD" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_reddit_new"
             android:icon="@drawable/ic_menu_manage"
-            android:title="TBD" />
+            android:title="Reddit New" />
     </group>
 
     <item android:title="Links">

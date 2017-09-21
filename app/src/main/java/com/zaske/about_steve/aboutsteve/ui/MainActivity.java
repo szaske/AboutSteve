@@ -92,11 +92,13 @@ public class MainActivity extends AppCompatActivity
             Intent hatedStuff = new Intent(this, HatedStuffActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(hatedStuff);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_reddit) {
             Intent Reddit = new Intent(this, AwwListActivity.class);
             startActivity(Reddit);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_reddit_new) {
+            Intent Reddit_New = new Intent(this, AwwsListActivity.class);
+            startActivity(Reddit_New);
 
         } else if (id == R.id.nav_share) {
 

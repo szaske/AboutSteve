@@ -67,19 +67,6 @@ public class AwwListActivity extends AppCompatActivity {
                     }
                 });
 
-//                HatedStuffActivity.this.runOnUiThread(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//                        hateAdapter = new HatedListAdapter(getSupportFragmentManager(),mAwws);
-//                        mAwwsViewPager.setAdapter(hateAdapter);
-//                        mAwwsViewPager.setPersistentDrawingCache(ViewGroup.PERSISTENT_SCROLLING_CACHE);
-//                        mAwwsViewPager.setDrawingCacheEnabled(true);
-//                        mAwwsViewPager.setDrawingCacheQuality(mAwwsViewPager.DRAWING_CACHE_QUALITY_HIGH);
-//                        mAwwsViewPager.setCurrentItem(0);
-//
-//                    }
-//                });  //end of runnable
 
             } // end of onResponse
         });

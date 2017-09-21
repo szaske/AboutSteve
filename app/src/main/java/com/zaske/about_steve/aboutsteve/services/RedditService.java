@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import static com.zaske.about_steve.aboutsteve.Constants.REDDIT_SERVICE_BASE_URL;
 
 public class RedditService extends Service {
+
     public RedditService() {
     }
 
