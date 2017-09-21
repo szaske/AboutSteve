@@ -93,11 +93,16 @@ public class AwwsRequester {
                         String thumb = awwData.getString("thumbnail");
                         String url = awwData.getString("url");
 
+                        //TO DO Speed this up
+                        //
                         // Set the last seen Aww in the list
                         setLastAwwId(kind+"_"+id);
 
-                        Aww tempAww = new Aww(kind, id, title, thumb, url);
-                        Awws.add(tempAww);
+                        //Specific to Reddit.  This removes the first item in a list
+                        if(!awwData.getString("domain").contentEquals("reddit.com")){
+                            Awws.add(new Aww(kind, id, title, thumb, url));
+                        }
+
                     }
 
                     // Has the last known Aww by kept in LastAwwId?

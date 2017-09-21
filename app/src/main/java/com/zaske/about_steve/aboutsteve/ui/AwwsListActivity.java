@@ -2,6 +2,7 @@ package com.zaske.about_steve.aboutsteve.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
     private ArrayList<Aww> mAwwsList; // What's being tracked
     private AwwsRequester mAwwRequester;
     private AwwsRecyclerAdapter mAdapter; //The 'data source' for the recyclerview
+    private GridLayoutManager mGridLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,11 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
 
         //  Attaching the Rview and assigning a layoutManager
         mRecyclerView = (RecyclerView) findViewById(R.id.awwsRecyclerView);
-        mLinearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+
+        mGridLayoutManager = new GridLayoutManager(this, 2);
+
+        //mLinearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
 
         mAwwsList = new ArrayList<>(); // An empty arrayList for the items in your list
         mAdapter = new AwwsRecyclerAdapter(mAwwsList);
@@ -53,7 +58,7 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
 
     // This method asks the layoutManager what's the last visible position
     private int getLastVisibleItemPosition() {
-        return mLinearLayoutManager.findLastVisibleItemPosition();
+        return mGridLayoutManager.findLastVisibleItemPosition();
     }
 
     // This creates a Scroll Listener to the RecyclerView

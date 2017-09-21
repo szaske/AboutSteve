@@ -45,7 +45,7 @@ public class AwwsRecyclerAdapter extends RecyclerView.Adapter<AwwsRecyclerAdapte
 
             // TODO: Implement Butterknife
             mAwwImage = (ImageView) v.findViewById(R.id.aww_item_image);
-            mAwwTitle = (TextView) v.findViewById(R.id.aww_item_title);
+            // mAwwTitle = (TextView) v.findViewById(R.id.aww_item_title);
             v.setOnClickListener(this);
         }
 
@@ -67,7 +67,7 @@ public class AwwsRecyclerAdapter extends RecyclerView.Adapter<AwwsRecyclerAdapte
          * @param aww The Aww object to be bound
          */
         public void bindAww(Aww aww) {
-            mAwwTitle.setText(aww.getTitle());
+            // mAwwTitle.setText(aww.getTitle());
             Picasso.with(mAwwImage.getContext()).load(aww.getThumbnail()).into(mAwwImage);
         }
     }  //end of viewHolder class
