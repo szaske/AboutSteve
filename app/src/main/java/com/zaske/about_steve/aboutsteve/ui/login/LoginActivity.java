@@ -49,11 +49,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPasswordLoginButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
 
-        //check previous users
+        //check for previous user logins.  Auto-fill in
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEmailEditText.setText(sharedPreferences.getString(Constants.PREFERENCES_PREVIOUS_USER_KEY, ""));
 
-        mPasswordEditText.requestFocus();
+        //Set the location of the cursor
+        if (android.text.TextUtils.isEmpty(mEmailEditText.getText())){
+            mEmailEditText.requestFocus();
+        } else {
+            mPasswordEditText.requestFocus();
+        }
+
         createAuthProgressDialog();
 
         //Now we create a Auth State Listener. This will handle moving a user to other activities
