@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.zaske.about_steve.aboutsteve.Constants;
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.adapters.FirebaseAwwListAdapter;
@@ -36,25 +37,21 @@ public class SavedAwwsListActivity extends AppCompatActivity implements OnStartD
         setContentView(R.layout.activity_saved_awws_list);
         ButterKnife.bind(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mAwwFireBaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_AWW)
-                .child(uid);
-
         setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseAwwListAdapter(
-                Aww.class,
-                R.layout.saved_aww_list_item,
-                FirebaseAwwViewHolder.class,
-                mAwwFireBaseReference,
-                this,
-                this) {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Query query = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_AWW)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);;
+
+        mFirebaseAdapter = new FirebaseAwwListAdapter(Aww.class, R.layout.saved_aww_list_item, FirebaseAwwViewHolder.class, query, this, this) {
 
             @Override
             protected void populateViewHolder(FirebaseAwwViewHolder viewHolder, Aww model, int position) {

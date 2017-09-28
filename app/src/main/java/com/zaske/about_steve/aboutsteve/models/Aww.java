@@ -17,6 +17,7 @@ public class Aww implements Serializable {
     private String thumbnail;
     private String url;
     private String pushId;
+    private String index;
 
     public Aww(){}
 
@@ -26,6 +27,8 @@ public class Aww implements Serializable {
         this.title = title;
         this.thumbnail = thumbnail;
         this.url = url;
+        this.index = "not_specified";
+
     }
 
     public String getKind() {
@@ -53,4 +56,8 @@ public class Aww implements Serializable {
     }
 
     public void setPushId(String pushId) { this.pushId = pushId; }
+
+    public String getIndex() { return index; }
+
+    public void setIndex(String index) { this.index = index; }
 }

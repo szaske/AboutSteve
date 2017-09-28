@@ -7,11 +7,18 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.zaske.about_steve.aboutsteve.models.Aww;
 import com.zaske.about_steve.aboutsteve.util.ItemTouchHelperAdapter;
 import com.zaske.about_steve.aboutsteve.util.OnStartDragListener;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by Guest on 9/28/17.
@@ -21,6 +28,11 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
+
+    // implementing this ChildEventListener interface can be used to
+    // receive events about changes in the child locations of a given Firebase ref
+    private ChildEventListener mChildEventListener;
+    private ArrayList<Aww> mAwws = new ArrayList<>();
 
     public FirebaseAwwListAdapter(Class<Aww> modelClass,
                                   int modelLayout,
@@ -32,7 +44,37 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
-    }
+
+        //Created in the constructor, this interface gives us the ability to
+        mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                //this will save each object into our array
+                mAwws.add(dataSnapshot.getValue(Aww.class));
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    } // End of constructor
 
     @Override
     protected void populateViewHolder(final FirebaseAwwViewHolder viewHolder, Aww model, int position) {
@@ -56,11 +98,39 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+
+        // This method swaps objects in an arraylist
+        Collections.swap(mAwws, fromPosition, toPosition);
+        // This lets Firebase know that we've moved items in a list
+        notifyItemMoved(fromPosition, toPosition);
+
         return false;
     }
 
     @Override
     public void onItemDismiss(int position) {
+        // This removes the item from an arraylist
+        mAwws.remove(position);
+        // This tells Firebase to do the same
+        getRef(position).removeValue();
+    }
 
+    @Override
+    public void cleanup() {
+        super.cleanup();
+        setIndexInFirebase();
+        mRef.removeEventListener(mChildEventListener);
+    }
+
+
+    private void setIndexInFirebase() {
+
+        // For each aww in the arraylist
+        for (Aww aww : mAwws) {
+            int index = mAwws.indexOf(aww);
+            DatabaseReference ref = getRef(index);
+            aww.setIndex(Integer.toString(index));
+            ref.setValue(aww);
+        }
     }
 }

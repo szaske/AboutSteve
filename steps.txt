@@ -17,4 +17,29 @@ Swiping will now be implemented
 
 8. Make a new public variable in the Viewholder class (mAwwImageView)
 9. Change the variable binding to point to this new public variable
-10. Create a setOnTouchListener method in the FirebaseAwwListAdapter
+10. Create a setOnTouchListener method in the FirebaseAwwListAdapter's populateViewHolder method
+
+Now dragging is implemented but not yet saved in Firebase
+
+11. Edit the onItemMove method in the FirebaseAwwListAdapter
+12. Edit the onItemDismiss method in the FirebaseAwwListAdapter
+13. Edit the Model and add an index member variable.  Set it to not_specified in the constructor
+14. Create getters and setters for this index variable.
+15. Create a new Constant to point to this static FB location
+16. Edit Activity
+    a. Move Firebase instance creation to setUpFirebaseAdapter
+    b. Change the FB database reference to a query
+    c. Add orderByChild to end of query to order the results by index
+
+Now we need to be able to get access to the Aww objects, and the index property...so we need to edit our
+Adapter.
+
+17. Add a ChildEventListener to the Adapter
+18. Create a new private Array to hold the Awws objects list.
+19. Instantiate the listener in the Adapter constructor, so we'll be listening when the adapter gets created.
+20. Override all the listener methods
+21. Edit the Adapter.onItemMove method to swap objects in the local adapter arraylist
+22. Edit the Adapter.onItemDismiss method to delete the swiped object from the local
+23. Create a new setIndexInFirebase() method in the adapter.  This method sets and saves the index numbers in Firebase
+24. Override the FirebaseAdapter cleanup method to run this new index setting process.  Make sure you also remove the ChildEventListener.
+
