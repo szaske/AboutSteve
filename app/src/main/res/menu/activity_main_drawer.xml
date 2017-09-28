@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/code_samples"
+            android:icon="@drawable/ic_code_samples"
+            android:title="Code Samples" />
+        <item
+            android:id="@+id/nav_hate"
+            android:icon="@drawable/ic_menu_bug"
+            android:title="Stuff Steve Hates" />
+        <item
+            android:id="@+id/nav_awwsome"
+            android:icon="@drawable/ic_menu_awwsome"
+            android:title="Awwsome Sauce" />
+        <item
+            android:id="@+id/nav_saved"
+            android:icon="@drawable/ic_menu_saved"
+            android:title="Saved Awwsome" />
+
+    </group>
+
+    <item android:title="Links">
+        <menu>
+            <item
+                android:id="@+id/nav_resume"
+                android:icon="@drawable/ic_menu_attached"
+                android:title="Resume" />
+        </menu>
+    </item>
+
+</menu>
