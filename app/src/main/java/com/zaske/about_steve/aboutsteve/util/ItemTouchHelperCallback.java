@@ -25,6 +25,28 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
     }
 
     /**
+     *  The method below informs the ItemTouchHelperAdapter that drag gestures are enabled.
+     *  We could also disable drag gestures by returning 'false'.
+     *
+     * @return  Boolean to indicate that dragging is enabled.
+     */
+    @Override
+    public boolean isLongPressDragEnabled() {
+        return true;
+    }
+
+    /**
+     *  The method below informs the ItemTouchHelperAdapter that swipe gestures are enabled.
+     *  We could also disable them by returning 'false'.
+     * @return  Boolean to indicate that Swiping is enabled.
+     *
+     */
+    @Override
+    public boolean isItemViewSwipeEnabled() {
+        return true;
+    }
+
+    /**
      *  getMovementFlags informs the ItemTouchHelper which movement directions are supported.
      *
      * @param recyclerView
@@ -54,11 +76,11 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
         // Not sure what this does. Logging to find out
         if (source.getItemViewType() != target.getItemViewType()) {
-            Log.d("onMove:", "source ItemViewType="+String.valueOf(source.getItemViewType())+", target:"+String.valueOf(target.getItemViewType()));
+            Log.d("FALSE onMove: ", "source ItemViewType="+String.valueOf(source.getItemViewType())+", target:"+String.valueOf(target.getItemViewType()));
             return false;
         }
 
-        Log.d("onMove:", "source ItemViewType="+String.valueOf(source.getItemViewType())+", target:"+String.valueOf(target.getItemViewType()));
+        Log.d("TRUE onMove:", "source ItemViewType="+String.valueOf(source.getItemViewType())+", target:"+String.valueOf(target.getItemViewType()));
 
         // This is where the magic occurs, this fires the onItemMove method in our adapter
         mItemTouchAdapter.onItemMove(source.getAdapterPosition(), target.getAdapterPosition());

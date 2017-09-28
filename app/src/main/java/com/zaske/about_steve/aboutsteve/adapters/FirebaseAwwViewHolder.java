@@ -31,6 +31,9 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
+    //This view is made public so we can access it via an onClick event listener
+    public ImageView mAwwImageView;
+
     // a key for easier reference.  Used as a Key name in an intent
     private static final String AWW_KEY = "AWW";
 
@@ -45,7 +48,7 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
     }
 
     public void bindAww(Aww aww) {
-        ImageView awwImageView = (ImageView) mView.findViewById(R.id.awwImageView);
+        mAwwImageView = (ImageView) mView.findViewById(R.id.awwImageView);
         TextView awwTitleTextView = (TextView) mView.findViewById(R.id.awwTitleTextView);
 
         Picasso.with(mContext).setLoggingEnabled(true);
@@ -54,7 +57,7 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
                 .load(aww.getThumbnail())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(awwImageView);
+                .into(mAwwImageView);
 
         awwTitleTextView.setText(aww.getTitle());
     }

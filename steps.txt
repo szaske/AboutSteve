@@ -1,8 +1,20 @@
-How to add animation to an Android app
+How to add animation to an Android app RecyclerView
 
 1. Create a ItemTouchHelper interface in util package
 2. Create a OnStartDragListener interface helper
 3. Create a ItemTouchHelperCallback class.  This catches the ItemTouchHelper callbacks and passes them to our adapter.
 4. Download reorder icons to add to our viewholders and place them in the various mipmap folders
 5. Edit the layout to include these new icons/images
+6. Create a new adapter (FirebaseAwwListAdapter) that extends the built in FirebaseRecyclerAdapter
+7. Edit the existing Activity (SavedAwwsListActivity) to make these changes
+    a. Add implements OnStartDragListener to the class
+    b. Add it's onStartDrag method
+    b. Switch the adapter to FirebaseAwwListAdapter from ???
+    c. Add a member variable private ItemTouchHelper mItemTouchHelper;
+    d. Instantiate the helper in the Activities setUpFirebaseAdapter method
 
+Swiping will now be implemented
+
+8. Make a new public variable in the Viewholder class (mAwwImageView)
+9. Change the variable binding to point to this new public variable
+10. Create a setOnTouchListener method in the FirebaseAwwListAdapter
