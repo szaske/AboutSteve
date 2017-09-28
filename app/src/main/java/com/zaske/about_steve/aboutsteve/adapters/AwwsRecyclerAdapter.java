@@ -34,7 +34,7 @@ public class AwwsRecyclerAdapter extends RecyclerView.Adapter<AwwsRecyclerAdapte
         // doesn’t have to repeatedly query the same information.
         // This is why we're using a recyclerview
         private ImageView mAwwImage;
-        private TextView mAwwTitle;
+        private TextView mAwwPositionText;
         private Aww mAww;
 
         // a key for easier reference.  Used as a Key name in an intent
@@ -46,7 +46,7 @@ public class AwwsRecyclerAdapter extends RecyclerView.Adapter<AwwsRecyclerAdapte
 
             // TODO: Implement Butterknife
             mAwwImage = (ImageView) v.findViewById(R.id.aww_item_image);
-            // mAwwTitle = (TextView) v.findViewById(R.id.aww_item_title);
+            mAwwPositionText = (TextView) v.findViewById(R.id.posTextView);
             v.setOnClickListener(this);
         }
 
@@ -73,9 +73,15 @@ public class AwwsRecyclerAdapter extends RecyclerView.Adapter<AwwsRecyclerAdapte
          */
         public void bindAww(Aww aww) {
 
+            // Here is where we can add text to a textview to show this.mPosition on each item
+
             // This makes it so the Holder has a copy of the object
             mAww = aww;
-            Picasso.with(mAwwImage.getContext()).load(aww.getThumbnail()).into(mAwwImage);
+            mAwwPositionText.setText(String.valueOf(this.getAdapterPosition()));
+            Picasso
+                    .with(mAwwImage.getContext())
+                    .load(aww.getThumbnail())
+                    .into(mAwwImage);
         }
     }  //end of viewHolder class
 

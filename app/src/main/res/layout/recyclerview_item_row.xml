@@ -30,5 +30,16 @@
         android:layout_marginBottom="2dp"
         app:layout_constraintHorizontal_bias="0.0" />
 
+    <TextView
+        android:id="@+id/posTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="TextView"
+        android:textColor="?android:attr/colorForegroundInverse"
+        app:layout_constraintBottom_toBottomOf="@+id/aww_item_image"
+        app:layout_constraintLeft_toLeftOf="@+id/aww_item_image" />
+
 
 </android.support.constraint.ConstraintLayout>

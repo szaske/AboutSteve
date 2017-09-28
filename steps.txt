@@ -1,0 +1,8 @@
+How to add animation to an Android app
+
+1. Create a ItemTouchHelper interface in util package
+2. Create a OnStartDragListener interface helper
+3. Create a ItemTouchHelperCallback class.  This catches the ItemTouchHelper callbacks and passes them to our adapter.
+4. Download reorder icons to add to our viewholders and place them in the various mipmap folders
+5. Edit the layout to include these new icons/images
+

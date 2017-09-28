@@ -1,0 +1,25 @@
+0. AC: Activity (AC) is started
+1. AC: RecyclerView View (RV) is created
+2. AC: Layout Manager (LM) is created and assigned to RV
+3. AC: A new empty array of items (for the RV) is created
+4. AC: A Recycler Adapter (RA) is created and assigned to the RV
+5. AC: A scroll listener is created on the RV, to track when its scrolled.
+6. AC: A new helper object, Requester (RE) is created.
+7. AC: Activity.OnStart requests more content via RE
+8. RE: RE queries API and grabs set of content
+9. RE: My logic cleans the data as it comes in
+10. RE: RE fires AC receivedData method passing the new set of view items.  This is ran on the UI thread.
+11. AC: RA is notified that data has changed
+12. RA: Gets count of items in it's list
+13. VH: fires OnCreateViewHolder to, umm create a viewholder (VH)
+14. VH: creates a click listener to track clicks on this object
+15. RA: onBindVH fires, binding VH to position (0)
+16. RA: Calls VH's bindItem method and sends item0 to VH
+17. VH:
+CYCLE:
+    RA getItemCount
+    VH OnCreateVH (passes item to VH)
+    VH Constructor
+    VH bindItem - decorates the viewHolder items (in bindItem)
+
+

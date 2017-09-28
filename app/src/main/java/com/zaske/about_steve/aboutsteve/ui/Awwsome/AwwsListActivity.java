@@ -9,8 +9,8 @@ import android.util.Log;
 
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.adapters.AwwsRecyclerAdapter;
-import com.zaske.about_steve.aboutsteve.misc.AwwsRequester;
-import com.zaske.about_steve.aboutsteve.misc.AwwsRequester.AwwsRequesterResponse;
+import com.zaske.about_steve.aboutsteve.util.AwwsRequester;
+import com.zaske.about_steve.aboutsteve.util.AwwsRequester.AwwsRequesterResponse;
 import com.zaske.about_steve.aboutsteve.models.Aww;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
     private RecyclerView mRecyclerView; // To connect to my view object
     private LinearLayoutManager mLinearLayoutManager; // This tracks what views are where in the Rview
     private ArrayList<Aww> mAwwsList; // What's being tracked
-    private AwwsRequester mAwwRequester;
+    private AwwsRequester mAwwRequester; //helper class
     private AwwsRecyclerAdapter mAdapter; //The 'data source' for the recyclerview
     private GridLayoutManager mGridLayoutManager;
 
@@ -35,7 +35,6 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
 
         mGridLayoutManager = new GridLayoutManager(this, 3);
 
-        //mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
 
         mAwwsList = new ArrayList<>(); // An empty arrayList for the items in your list

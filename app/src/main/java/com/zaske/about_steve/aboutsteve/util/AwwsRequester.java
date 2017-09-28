@@ -1,8 +1,7 @@
-package com.zaske.about_steve.aboutsteve.misc;
+package com.zaske.about_steve.aboutsteve.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.util.Log;
 
 import com.zaske.about_steve.aboutsteve.models.Aww;
@@ -12,9 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import okhttp3.Call;
 import okhttp3.Callback;
