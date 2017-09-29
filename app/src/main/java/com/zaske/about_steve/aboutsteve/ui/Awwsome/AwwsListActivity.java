@@ -1,5 +1,6 @@
 package com.zaske.about_steve.aboutsteve.ui.Awwsome;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -33,7 +34,13 @@ public class AwwsListActivity extends AppCompatActivity implements AwwsRequester
         //  Attaching the Rview and assigning a layoutManager
         mRecyclerView = (RecyclerView) findViewById(R.id.awwsRecyclerView);
 
-        mGridLayoutManager = new GridLayoutManager(this, 3);
+        // Adjust grid according to orientation
+        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            mGridLayoutManager = new GridLayoutManager(this, 3);
+        }
+        else{
+            mGridLayoutManager = new GridLayoutManager(this, 4);
+        }
 
         mRecyclerView.setLayoutManager(mGridLayoutManager);
 

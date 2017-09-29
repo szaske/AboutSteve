@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,24 +48,24 @@
                     android:id="@+id/playBoggleButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:text="Play Boggle"
-                    app:layout_constraintLeft_toLeftOf="@+id/clickEventButton"
-                    app:layout_constraintTop_toBottomOf="@+id/clickEventButton" />
+                    app:layout_constraintLeft_toRightOf="@+id/clickEventButton"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
                 <Button
                     android:id="@+id/passDataButton"
                     style="@android:style/Widget.Material.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:text="Passing Data Example"
-                    app:layout_constraintLeft_toLeftOf="@+id/playBoggleButton"
-                    app:layout_constraintTop_toBottomOf="@+id/playBoggleButton" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintLeft_toRightOf="@+id/playBoggleButton"/>
 
             </android.support.constraint.ConstraintLayout>
 
