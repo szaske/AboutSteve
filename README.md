@@ -1,7 +1,11 @@
 # ABOUT STEVE
 An Android application to help me learn Android and a chance to exercise various Android libraries and code patterns.
 
-## SPECS
+## NEW FEATURES
+1. Includes at least two gesture listeners (Drag/Reorder & Swipe to delete in Saved Awwsome)
+2. Implements at least one alternate resource. (Separate view for Portrait orientation in Code Samples)
+
+## OLD SPECS
 1. Create an app with at least, bare minimum, 3 activities that the user can navigate to	
 2. Display a list of information
 3. Implement custom adapters
@@ -11,13 +15,11 @@ An Android application to help me learn Android and a chance to exercise various
 7. Use ButterKnife to bind all views
 8. Implement the `View.OnClickListener` interface and set click listener to a view element
 9. Include unit tests
-
 10. Firebase user authentication is successfully implemented.
 11. The application saves and retrieves data using Firebase, and data is structured according to Firebase guidelines.
 12. The Firebase-RecyclerAdapter is used to display from your database.
 13. SharedPreferences is used to save an important piece of data in your app.
-
-Dialogs are in place to inform users of login status, etc.
+14. Dialogs are in place to inform users of login status, etc.
 
 Direct questions and comments to: [github@zaske.com](mailto:github@zaske.com)
 

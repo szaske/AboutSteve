@@ -2,8 +2,8 @@ package com.zaske.about_steve.aboutsteve.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -19,13 +19,8 @@ import com.zaske.about_steve.aboutsteve.ui.Awwsome.SavedAwwDetailActivity;
 import com.zaske.about_steve.aboutsteve.util.ItemTouchHelperAdapter;
 import com.zaske.about_steve.aboutsteve.util.OnStartDragListener;
 
-import org.parceler.Parcels;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-
-import static com.zaske.about_steve.aboutsteve.Constants.AWW_KEY;
 
 /**
  * Created by Guest on 9/28/17.
@@ -73,7 +68,7 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                Log.d("onChildMoved: ", "Something moved");
             }
 
             @Override
@@ -90,13 +85,14 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
         //According to the documentation This event listener is set here instead of the viewHolder,
         // because the FirebaseRecyclerAdapter handles the construction of viewholder internally
         // so we don't have access to the constructor.  But this doesn't seem correct.
-
         viewHolder.mAwwImageView.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("onTouch: ", "Action detected");
-                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Log.d("onTouch: ", "ACTION DOWN detected");
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;

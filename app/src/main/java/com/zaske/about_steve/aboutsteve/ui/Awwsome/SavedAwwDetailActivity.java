@@ -16,7 +16,7 @@ import com.zaske.about_steve.aboutsteve.Constants;
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.models.Aww;
 
-public class SavedAwwDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class SavedAwwDetailActivity extends AppCompatActivity {
 
     private PhotoView mAwwPhotoView;
     private VideoView mAwwVideoView;
@@ -42,11 +42,11 @@ public class SavedAwwDetailActivity extends AppCompatActivity implements View.On
 
         if (mAww.getUrl().endsWith(".mp4")){
             //hide ImageView
-            mAwwPhotoView = (PhotoView) findViewById(R.id.awwPhotoView);
+            mAwwPhotoView = findViewById(R.id.awwPhotoView);
             mAwwPhotoView.setVisibility(View.GONE);
 
             Uri uri = Uri.parse(mAww.getUrl()); //Declare your url here.
-            mAwwVideoView = (VideoView) findViewById(R.id.awwVideoView);
+            mAwwVideoView = findViewById(R.id.awwVideoView);
             mAwwVideoView.setMediaController(new MediaController(this));
             mAwwVideoView.setVideoURI(uri);
             mAwwVideoView.requestFocus();
@@ -54,7 +54,7 @@ public class SavedAwwDetailActivity extends AppCompatActivity implements View.On
 
         } else {
             // Hide video view
-            mAwwVideoView = (VideoView) findViewById(R.id.awwVideoView);
+            mAwwVideoView = findViewById(R.id.awwVideoView);
             mAwwVideoView.setVisibility(View.GONE);
 
             // Show image
@@ -66,8 +66,4 @@ public class SavedAwwDetailActivity extends AppCompatActivity implements View.On
                     .into(mAwwPhotoView);
         }
       }
-
-    @Override public void onClick(View view) {
-
-    }
 }
