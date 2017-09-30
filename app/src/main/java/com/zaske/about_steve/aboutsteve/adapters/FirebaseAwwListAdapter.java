@@ -1,6 +1,7 @@
 package com.zaske.about_steve.aboutsteve.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,13 +13,19 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+import com.zaske.about_steve.aboutsteve.Constants;
 import com.zaske.about_steve.aboutsteve.models.Aww;
+import com.zaske.about_steve.aboutsteve.ui.Awwsome.SavedAwwDetailActivity;
 import com.zaske.about_steve.aboutsteve.util.ItemTouchHelperAdapter;
 import com.zaske.about_steve.aboutsteve.util.OnStartDragListener;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+
+import static com.zaske.about_steve.aboutsteve.Constants.AWW_KEY;
 
 /**
  * Created by Guest on 9/28/17.
@@ -85,6 +92,7 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
         // so we don't have access to the constructor.  But this doesn't seem correct.
 
         viewHolder.mAwwImageView.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("onTouch: ", "Action detected");
@@ -94,7 +102,17 @@ public class FirebaseAwwListAdapter extends FirebaseRecyclerAdapter<Aww, Firebas
                 return false;
             }
         });
-    }
+
+        // You can affect the viewholder here
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent showAwwIntent = new Intent(mContext, SavedAwwDetailActivity.class);
+                showAwwIntent.putExtra(Constants.AWW_KEY, mAwws.get(viewHolder.getAdapterPosition()));
+                mContext.startActivity(showAwwIntent);
+            }
+        });
+    } // end of populateViewHolder
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {

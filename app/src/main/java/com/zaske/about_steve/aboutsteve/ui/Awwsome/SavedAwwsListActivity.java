@@ -51,14 +51,7 @@ public class SavedAwwsListActivity extends AppCompatActivity implements OnStartD
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);;
 
-        mFirebaseAdapter = new FirebaseAwwListAdapter(Aww.class, R.layout.saved_aww_list_item, FirebaseAwwViewHolder.class, query, this, this) {
-
-            @Override
-            protected void populateViewHolder(FirebaseAwwViewHolder viewHolder, Aww model, int position) {
-                Log.d("SZ Debug", "populateViewHolder ID: " + model.getId());
-                viewHolder.bindAww(model);
-            }
-        };
+        mFirebaseAdapter = new FirebaseAwwListAdapter(Aww.class, R.layout.saved_aww_list_item, FirebaseAwwViewHolder.class, query, this, this);
         mSavedAwwRecyclerView.setHasFixedSize(true);
         mSavedAwwRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mSavedAwwRecyclerView.setAdapter(mFirebaseAdapter);

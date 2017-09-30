@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * Created by steve on 9/22/2017.
  */
 
-public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -35,7 +35,7 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
     public ImageView mAwwImageView;
 
     // a key for easier reference.  Used as a Key name in an intent
-    private static final String AWW_KEY = "AWW";
+    // private static final String AWW_KEY = "AWW";
 
     View mView;
     Context mContext;
@@ -44,7 +44,9 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+        // eliminated...OnClick moved to Adapter so it could have access
+        // to the list of Awws.
+        //itemView.setOnClickListener(this);
     }
 
     public void bindAww(Aww aww) {
@@ -62,43 +64,43 @@ public class FirebaseAwwViewHolder extends RecyclerView.ViewHolder implements Vi
         awwTitleTextView.setText(aww.getTitle());
     }
 
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Aww> awws = new ArrayList<>();
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        DatabaseReference ref = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_AWW)
-                .child(uid);
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    awws.add(snapshot.getValue(Aww.class));
-                }
-
-                // TODO look into this code
-                int itemPosition = getLayoutPosition();
-
-                Intent showAwwIntent = new Intent(mContext, SavedAwwDetailActivity.class);
-                showAwwIntent.putExtra(AWW_KEY, awws.get(itemPosition));
-                mContext.startActivity(showAwwIntent);
-
-//                Intent intent = new Intent(mContext, AwwDetailActivity.class);
-//                intent.putExtra("position", itemPosition + "");
-//                intent.putExtra("awws", Parcels.wrap(awws));
-
-//                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+//    @Override
+//    public void onClick(View view) {
+//        final ArrayList<Aww> awws = new ArrayList<>();
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        DatabaseReference ref = FirebaseDatabase
+//                .getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_AWW)
+//                .child(uid);
+//
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    awws.add(snapshot.getValue(Aww.class));
+//                }
+//
+//                // TODO look into this code
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent showAwwIntent = new Intent(mContext, SavedAwwDetailActivity.class);
+//                showAwwIntent.putExtra(AWW_KEY, awws.get(itemPosition));
+//                mContext.startActivity(showAwwIntent);
+//
+////                Intent intent = new Intent(mContext, AwwDetailActivity.class);
+////                intent.putExtra("position", itemPosition + "");
+////                intent.putExtra("awws", Parcels.wrap(awws));
+//
+////                mContext.startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//    }
 }

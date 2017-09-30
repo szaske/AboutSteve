@@ -42,4 +42,4 @@ Adapter.
 22. Edit the Adapter.onItemDismiss method to delete the swiped object from the local
 23. Create a new setIndexInFirebase() method in the adapter.  This method sets and saves the index numbers in Firebase
 24. Override the FirebaseAdapter cleanup method to run this new index setting process.  Make sure you also remove the ChildEventListener.
-
+25. Move the Onclick-listener from the Viewholder, to the Adapter.

@@ -10,4 +10,5 @@ public class Constants {
     public static final String PREFERENCES_PREVIOUS_LOCATION_KEY = "previousLocation";
     public static final String PREFERENCES_PREVIOUS_USER_KEY = "previousUser";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String AWW_KEY = "AWW";
 }
