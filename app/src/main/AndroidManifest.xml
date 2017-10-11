@@ -54,7 +54,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zaske.about_steve.aboutsteve.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.Awwsome.AwwDetailActivity" >
+        <activity android:name=".ui.Awwsome.AwwDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"> <!-- or android:screenOrientation="landscape"-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zaske.about_steve.aboutsteve.ui.Awwsome.AwwsListActivity" />
@@ -74,7 +75,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Awwsome.SavedAwwsListActivity">
+        <activity android:name=".ui.Awwsome.SavedAwwsListActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zaske.about_steve.aboutsteve.ui.MainActivity" />

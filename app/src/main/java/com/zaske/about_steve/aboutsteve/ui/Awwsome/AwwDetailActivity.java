@@ -26,9 +26,11 @@ import com.zaske.about_steve.aboutsteve.models.Aww;
 
 import com.google.gson.Gson;
 
+import cn.jzvd.JZVideoPlayerStandard;
+
 public class AwwDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private PhotoView mAwwPhotoView;
-    private VideoView mAwwVideoView;
+    private JZVideoPlayerStandard jzVideoPlayerStandard;
     private Button mAwwSavedButton;
     private Aww mAww;
     private static final String AWW_KEY = "AWW";
@@ -48,22 +50,19 @@ public class AwwDetailActivity extends AppCompatActivity implements View.OnClick
 
         if (mAww.getUrl().endsWith(".mp4")){
 
+            JZVideoPlayerStandard jzVideoPlayerStandard = (JZVideoPlayerStandard) findViewById(R.id.awwVideoView);
+            jzVideoPlayerStandard.setUp(mAww.getUrl()
+                    , JZVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,mAww.getTitle());
+            jzVideoPlayerStandard.startVideo();
+
             mAwwPhotoView = (PhotoView) findViewById(R.id.awwPhotoView);
             mAwwPhotoView.setVisibility(View.GONE);
-
-            Uri uri = Uri.parse(mAww.getUrl()); //Declare your url here.
-
-            mAwwVideoView = (VideoView) findViewById(R.id.awwVideoView);
-            mAwwVideoView.setMediaController(new MediaController(this));
-            mAwwVideoView.setVideoURI(uri);
-            mAwwVideoView.requestFocus();
-            mAwwVideoView.start();
 
         } else {
 
             // Hide video view
-            mAwwVideoView = (VideoView) findViewById(R.id.awwVideoView);
-            mAwwVideoView.setVisibility(View.GONE);
+            jzVideoPlayerStandard = (JZVideoPlayerStandard) findViewById(R.id.awwVideoView);
+            jzVideoPlayerStandard.setVisibility(View.GONE);
 
             // Show image
             mAwwPhotoView = (PhotoView) findViewById(R.id.awwPhotoView);
@@ -95,9 +94,6 @@ public class AwwDetailActivity extends AppCompatActivity implements View.OnClick
             pushRef.setValue(mAww); // This saves the Aww
 
             Toast.makeText(v.getContext(), "Saved", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
-//            intent.putExtra("location", location);
-//            startActivity(intent);
         }
     }
 

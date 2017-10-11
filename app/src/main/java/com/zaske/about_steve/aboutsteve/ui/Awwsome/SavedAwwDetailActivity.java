@@ -16,10 +16,12 @@ import com.zaske.about_steve.aboutsteve.Constants;
 import com.zaske.about_steve.aboutsteve.R;
 import com.zaske.about_steve.aboutsteve.models.Aww;
 
+import cn.jzvd.JZVideoPlayerStandard;
+
 public class SavedAwwDetailActivity extends AppCompatActivity {
 
     private PhotoView mAwwPhotoView;
-    private VideoView mAwwVideoView;
+    private JZVideoPlayerStandard jzVideoPlayerStandard;
     private Aww mAww;
     private static final String AWW_KEY = "AWW";
     private DatabaseReference mAwwFireBaseReference;
@@ -45,17 +47,15 @@ public class SavedAwwDetailActivity extends AppCompatActivity {
             mAwwPhotoView = findViewById(R.id.awwPhotoView);
             mAwwPhotoView.setVisibility(View.GONE);
 
-            Uri uri = Uri.parse(mAww.getUrl()); //Declare your url here.
-            mAwwVideoView = findViewById(R.id.awwVideoView);
-            mAwwVideoView.setMediaController(new MediaController(this));
-            mAwwVideoView.setVideoURI(uri);
-            mAwwVideoView.requestFocus();
-            mAwwVideoView.start();
+            JZVideoPlayerStandard jzVideoPlayerStandard = (JZVideoPlayerStandard) findViewById(R.id.awwVideoView);
+            jzVideoPlayerStandard.setUp(mAww.getUrl()
+                    , JZVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,mAww.getTitle());
+            jzVideoPlayerStandard.startVideo();
 
         } else {
             // Hide video view
-            mAwwVideoView = findViewById(R.id.awwVideoView);
-            mAwwVideoView.setVisibility(View.GONE);
+            jzVideoPlayerStandard = findViewById(R.id.awwVideoView);
+            jzVideoPlayerStandard.setVisibility(View.GONE);
 
             // Show image
             final PhotoView mAwwPhotoView = findViewById(R.id.awwPhotoView);

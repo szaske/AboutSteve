@@ -36,9 +36,7 @@ android {
     repositories {
         mavenCentral()
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        maven { url "https://maven.google.com" }
     }
 }
 
@@ -75,6 +73,7 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-android:2.7.22'
     annotationProcessor 'org.parceler:parceler:1.1.9'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'cn.jzvd:jiaozivideoplayer:6.0.2'
 
 }
 
