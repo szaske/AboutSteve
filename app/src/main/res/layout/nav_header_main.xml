@@ -33,7 +33,7 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Steve Zaske"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp"
+        android:autoSizeTextType="uniform"
         android:visibility="visible"
         app:layout_constraintLeft_toRightOf="@+id/imageView"
         tools:layout_constraintBottom_creator="1"
@@ -43,18 +43,22 @@
         android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"/>
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginLeft="0dp"
+        android:layout_marginRight="24dp"
         android:text="steve@zaske.com"
-        android:textSize="18sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="4sp"
+        app:autoSizeStepGranularity="2sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintLeft_toLeftOf="@+id/textView3"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        android:layout_marginBottom="16dp"/>
+        tools:layout_constraintTop_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
